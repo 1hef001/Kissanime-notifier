@@ -28,6 +28,17 @@ def get_links(url, content):
     return links
 
 
+def list_anime_uri(links = []):
+    '''
+    Get all the link with class bigChar
+    '''
+    urls = []
+    for link in links:
+        if '/Anime/' in link:
+            urls.append(link)
+    
+    return urls
+
 
 def list_titles(links = []):
     '''
@@ -35,8 +46,9 @@ def list_titles(links = []):
     '''
     titles = []
     for link in links:
-        if '/Anime' in link:
+        if '/Anime/' in link:
             link = link.replace('/Anime/','')
+            link = link.replace('-',' ')
             if '/' in link:
                 pass
             else:
@@ -46,7 +58,7 @@ def list_titles(links = []):
 
     return titles
 
-def list_genres(links=[]):
+def list_genres(links = []):
     '''
     The list of links are surfed through
     and the substring genre is found out for classification
@@ -61,11 +73,35 @@ def list_genres(links=[]):
 
     return genres
 
+def get_desc(url, links = []):
+    '''
+    Get description of Anime from list
+    '''
+
+
+    
+    desc = []
+    txt = ''
+    l = ''
+    
+    for link in links:
+
+        l = url + link
+        soup = BeautifulSoup(get_url(l), 'lxml')
+        txt = soup.find('p',{'style':'text-align: justify;'}).get_text()
+        desc.append(txt)
+
+    return desc
+
+
+
 
 
 if __name__ == '__main__':
     URL = "https://kissanime.ru/AnimeList/MostPopular"
     d_link = get_links(URL,get_url(URL))
     # print(list_genres(d_link))
-    print(list_titles(d_link))
+    # print(list_titles(d_link))
+    a_link = list_anime_uri(d_link)
+    print(get_desc("https://kissanime.ru", a_link))
 
