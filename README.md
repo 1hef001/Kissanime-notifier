@@ -8,7 +8,7 @@ You can fork the [commit](https://github.com/1hef001/Kissanime-notifier/) and ch
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
-Import statements necessary as of now:
+**Import statements necessary as of now:**
 
 import cloudscraper
 from bs4 import BeautifulSoup
