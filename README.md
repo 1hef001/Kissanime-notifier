@@ -3,9 +3,10 @@
 You can fork the [commit](https://github.com/1hef001/Kissanime-notifier/) and change it as seen necessary. It is a work in progress, and any modifications in the right direction are welcomed.
 
 
-### Markdown
+### Essentials
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Since the [site](https://www.kissanime.ru) is a cloudflare protected site, we need to bypass the cloudflare security to scrape the content.
+Furthermore, if the video can be temporarily downloaded and played from local storage, it is appreciated.
 
 ```markdown
 **Import statements necessary as of now:**
